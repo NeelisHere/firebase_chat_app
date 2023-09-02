@@ -6,7 +6,7 @@ const Login = () => {
             <div className="formWrapper">
                 <p className="title">Login</p>
                 <form>
-                    <input type="text" placeholder="Username" />
+                    <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password"/>
                     <button type="submit">Login</button>
                 </form>
