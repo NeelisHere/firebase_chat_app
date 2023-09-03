@@ -1,8 +1,12 @@
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { signOut } from "firebase/auth"
+import { auth } from "../firebase"
 
 
 const Navbar = () => {
+
+
     return (
         <div className="navbar">
             <div className="user">
@@ -15,7 +19,21 @@ const Navbar = () => {
                     <span className="userEmail">johndoe@humans.com</span>
                 </div>
             </div>
-            <a href=""><FontAwesomeIcon icon={faArrowRightFromBracket} /></a>
+            <button
+                style={{
+                    backgroundColor: "transparent",
+                    outline: 'none',
+                    color: 'white',
+                    border: 'none', 
+                    cursor: 'pointer',
+                    marginRight: '10px'
+                }}
+                onClick={()=>{
+                    signOut(auth)
+                }}
+            >
+                <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" />
+            </button>
         </div>
     )
 }
