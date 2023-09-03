@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
 	{ path: '/', element: <Home/> },
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
 function App() {
 	return (
 		<div>
+			<div><Toaster/></div>
 			<RouterProvider router={router}/>
 		</div>
 	);
