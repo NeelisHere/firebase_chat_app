@@ -1,4 +1,4 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <span className="userEmail">johndoe@humans.com</span>
                 </div>
             </div>
-            <button>Logout</button>
+            <a href=""><FontAwesomeIcon icon={faArrowRightFromBracket} /></a>
         </div>
     )
 }
