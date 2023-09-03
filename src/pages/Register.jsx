@@ -61,7 +61,7 @@ const Register = () => {
                         <FontAwesomeIcon icon={faImage} style={{ color: "#858585", margin: '0px 5px' }} />
                         Choose Profile Image
                     </label>
-                    <button type="submit" disabled={loading}>
+                    <button type="submit" style={{cursor: 'pointer'}} disabled={loading}>
                         {
                             loading? 'Loading...':'Register'
                         }
