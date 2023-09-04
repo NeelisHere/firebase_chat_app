@@ -1,6 +1,12 @@
+import { useContext } from "react"
+import { AuthContext } from "../context/authContext"
+import { ChatContext } from "../context/chatContext"
 
 
 const Message = ({ user }) => {
+    const { currentUser } = useContext(AuthContext)
+    const { data } = useContext(ChatContext)
+    
     return (
         <div className={user === 'sender'?"messageFromOtherUser":"messageFromYou"}>
             <div className="userPic">

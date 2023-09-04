@@ -2,20 +2,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faVideo, faEllipsis } from "@fortawesome/free-solid-svg-icons"
 import Messages from "./Messages"
 import Input from "./Input"
+import { useContext } from "react"
+import { ChatContext } from "../context/chatContext"
 
 const Chat = () => {
+    const { data } = useContext(ChatContext)
+    console.log(4, data)
+
     return (
         <div className='chatbox'>
             <div className="chatNavbar">
                 <div className="chatInfo">
                     <div className="chatImage">
                         <img 
-                            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                            src={data.user.photoURL}
                             alt="x" 
                         />
                     </div>
                     <div className="chatNameEmail">
-                        <span>Jane Doe</span>
+                        <span>{data.user.displayName}</span>
                         <span className="chatEmail">janedoe@humans.com</span>
                     </div>
                 </div>
@@ -26,7 +31,7 @@ const Chat = () => {
                 </div>
             </div>
             <div className="chat">
-                <Messages />
+                {/* <Messages /> */}
             </div>
             <div className="inputbox">
                 <Input />
