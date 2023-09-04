@@ -7,7 +7,7 @@ import { ChatContext } from "../context/chatContext"
 
 const Chat = () => {
     const { data } = useContext(ChatContext)
-    console.log(4, data)
+    // console.log(4, data)
 
     return (
         <div className='chatbox'>
@@ -31,7 +31,7 @@ const Chat = () => {
                 </div>
             </div>
             <div className="chat">
-                {/* <Messages /> */}
+                <Messages />
             </div>
             <div className="inputbox">
                 <Input />

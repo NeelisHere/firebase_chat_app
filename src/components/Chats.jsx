@@ -3,6 +3,8 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/authContext";
 import { ChatContext } from "../context/chatContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage } from "@fortawesome/free-regular-svg-icons";
 
 
 const Chats = () => {
@@ -33,15 +35,21 @@ const Chats = () => {
             {
                 // console.log('>>', chats)
                 chats?.map((chat, index) => {
+                    console.log('>>', chat)
+                    const { lastMessage, userInfo } = chat[1]
                     return (
-                        <div className="userChat" key={index} onClick={()=>{handleSelect(chat[1].userInfo)}}>
+                        <div className="userChat" key={index} onClick={()=>{handleSelect(userInfo)}}>
                             <img
-                                src={chat[1].userInfo.photoURL}
+                                src={userInfo.photoURL}
                                 alt="x"
                             />
                             <div className="userChatInfo">
-                                <span>{chat[1].userInfo.displayName}</span>
-                                <span className="userChatLatestMessage">{chat[1].lastMessage?.text}</span>
+                                <span>{userInfo.displayName}</span>
+                                <span className="userChatLatestMessage">
+                                    {lastMessage?.imageFile && <FontAwesomeIcon icon={faImage} />}
+                                    {lastMessage?.sender === currentUser.uid ? 'You: ' : ''}
+                                    {lastMessage?.text}
+                                </span>
                             </div>
                         </div>
                     )

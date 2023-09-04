@@ -1,28 +1,50 @@
-import { useContext } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { AuthContext } from "../context/authContext"
 import { ChatContext } from "../context/chatContext"
 
 
-const Message = ({ user }) => {
+const Message = ({ message }) => {
     const { currentUser } = useContext(AuthContext)
+    const [date, setDate] = useState({ hours:'', minutes:'', year:'', month:'', day:'' })
     const { data } = useContext(ChatContext)
-    
+    // console.log('inside message component:\n', message, data)
+    const chatRef = useRef() 
+
+    useEffect(() => {
+        chatRef.current?.scrollIntoView({ behavior: 'smooth' })
+        const date = new Date(message.date.seconds*1000)
+        const month = date.toLocaleString('default', { month: 'long' });
+        setDate({
+            hours: date.getHours(),
+            minutes: date.getMinutes(),
+            year: date.getFullYear(),
+            month: month.slice(0, 3),
+            day: date.getDay()
+        })
+    }, [message])
+
     return (
-        <div className={user === 'sender'?"messageFromOtherUser":"messageFromYou"}>
+        <div ref={chatRef} className={message.senderId !== currentUser.uid?"messageFromOtherUser":"messageFromYou"}>
             <div className="userPic">
                 <img
-                    src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src={message.senderId !== currentUser.uid ? data.user.photoURL : currentUser.photoURL}
                     alt="x"
                 />
             </div>
             <div className="messageInfo">
                 <div className="messageContent">
-                    Hello, this is a new message.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur sequi corrupti maxime quis omnis earum vero vel nisi aperiam non!
+                    {message.text}
                 </div>
                 <div className="messageTime">
-                    12:45 AM
+                    {/* {console.log(new Date(message.date.nanoseconds))} */}
+                    {`${date.month} ${date.day}, ${date.year} - ${date.hours}:${date.minutes}`}
+                    
                 </div>
+                {message.imageFile && <img 
+                    src={message.imageFile} 
+                    style={{height: '50px', width: '50px', objectFit: 'cover'}} 
+                    alt="" 
+                />}
             </div>
         </div>
     )
