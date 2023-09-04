@@ -25,7 +25,7 @@ const Register = () => {
             const storageRef = ref(storage, `${username.split(' ').join('-')}-${date}`);
             await uploadBytesResumable(storageRef, file).then(() => {
                 getDownloadURL(storageRef).then(async (downloadURL) => {
-                    console.log('File available at', downloadURL);
+                    // console.log('File available at', downloadURL);
                     await updateProfile(res.user, {
                         displayName: username,
                         photoURL: downloadURL
@@ -36,6 +36,8 @@ const Register = () => {
                         email,
                         photoURL: downloadURL
                     })
+                    await setDoc(doc(db, 'userChats', res.user.uid), {})
+
                     toast.success('User Registered Successfully!')
                     navigate('/')
                 });
