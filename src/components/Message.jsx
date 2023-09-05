@@ -35,16 +35,27 @@ const Message = ({ message }) => {
                 <div className="messageContent">
                     {message.text}
                 </div>
+                {
+                    message.imageFile && 
+                    <img 
+                    src={message.imageFile} 
+                        style={{
+                            height: '100px', 
+                            width: '100%', 
+                            borderRadius: '5px',
+                            objectFit: 'cover',
+                            marginTop: '10px',
+                            // border: '2px solid red',
+                            marginBottom: '10px',
+                        }} 
+                        alt="" 
+                    />
+                }
                 <div className="messageTime">
                     {/* {console.log(new Date(message.date.nanoseconds))} */}
                     {`${date.month} ${date.day}, ${date.year} - ${date.hours}:${date.minutes}`}
                     
                 </div>
-                {message.imageFile && <img 
-                    src={message.imageFile} 
-                    style={{height: '50px', width: '50px', objectFit: 'cover'}} 
-                    alt="" 
-                />}
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ import { faImage } from "@fortawesome/free-regular-svg-icons";
 const Chats = () => {
     const [chats, setChats] = useState([])
     const { currentUser } = useContext(AuthContext)
-    const { dispatch } = useContext(ChatContext) 
+    const { data, dispatch } = useContext(ChatContext) 
 
     useEffect(() => {
         const getChats = () => {
@@ -26,7 +26,7 @@ const Chats = () => {
     }, [currentUser.uid])
 
     const handleSelect = (user) => {
-        console.log(1, user)
+        // console.log(1, user)
         dispatch({ type:'CHANGE_USER', payload:user })
     }
 
@@ -34,11 +34,17 @@ const Chats = () => {
         <div className='chats'>
             {
                 // console.log('>>', chats)
-                chats?.map((chat, index) => {
-                    console.log('>>', chat)
+                chats?.sort((a, b) => (a > b)).map((chat, index) => {
+                    // console.log('>>', chat)
                     const { lastMessage, userInfo } = chat[1]
+                    let selectedChatStyle = {}
+                    if (userInfo.uid === data.user.uid) {
+                        selectedChatStyle = {
+                            backgroundColor: '#dedede'
+                        }
+                    }
                     return (
-                        <div className="userChat" key={index} onClick={()=>{handleSelect(userInfo)}}>
+                        <div className="userChat" style={selectedChatStyle} key={index} onClick={()=>{handleSelect(userInfo)}}>
                             <img
                                 src={userInfo.photoURL}
                                 alt="x"
@@ -46,7 +52,7 @@ const Chats = () => {
                             <div className="userChatInfo">
                                 <span>{userInfo.displayName}</span>
                                 <span className="userChatLatestMessage">
-                                    {lastMessage?.imageFile && <FontAwesomeIcon icon={faImage} />}
+                                    {lastMessage?.imageFile && <FontAwesomeIcon style={{marginRight: '4px'}} icon={faImage} />}
                                     {lastMessage?.sender === currentUser.uid ? 'You: ' : ''}
                                     {lastMessage?.text}
                                 </span>
