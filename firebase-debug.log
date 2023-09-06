@@ -1,0 +1,57 @@
+[debug] [2023-09-06T13:57:21.069Z] ----------------------------------------------------------------------
+[debug] [2023-09-06T13:57:21.072Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\npaul\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-09-06T13:57:21.072Z] CLI Version:   12.5.2
+[debug] [2023-09-06T13:57:21.072Z] Platform:      win32
+[debug] [2023-09-06T13:57:21.073Z] Node Version:  v18.16.0
+[debug] [2023-09-06T13:57:21.074Z] Time:          Wed Sep 06 2023 19:27:21 GMT+0530 (India Standard Time)
+[debug] [2023-09-06T13:57:21.074Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-06T13:57:21.085Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-06T13:57:21.085Z] > authorizing via signed-in user (npaul_be19@thapar.edu)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\firebase_chat_app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-09-06T13:59:24.794Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-09-06T13:59:25.804Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2023-09-06T13:59:25.805Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project fir-chat-app-v1-9d4ef (Firebase Chat App v1) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2023-09-06T14:00:03.031Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-09-06T14:00:03.031Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/fir-chat-app-v1-9d4ef
+[debug] [2023-09-06T14:00:06.703Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com 200
+[debug] [2023-09-06T14:00:06.704Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2023-09-06T14:00:06.705Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2023-09-06T14:00:06.705Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/fir-chat-app-v1-9d4ef
+[debug] [2023-09-06T14:00:08.886Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2023-09-06T14:00:08.886Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2023-09-06T14:00:18.891Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-09-06T14:00:18.891Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/fir-chat-app-v1-9d4ef
+[debug] [2023-09-06T14:00:20.866Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com 200
+[debug] [2023-09-06T14:00:20.866Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fir-chat-app-v1-9d4ef/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2023-09-06T14:00:20.870Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fir-chat-app-v1-9d4ef [none]
+[debug] [2023-09-06T14:00:21.397Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fir-chat-app-v1-9d4ef 200
+[debug] [2023-09-06T14:00:21.397Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fir-chat-app-v1-9d4ef {"projectId":"fir-chat-app-v1-9d4ef","projectNumber":"675400414821","displayName":"Firebase Chat App v1","name":"projects/fir-chat-app-v1-9d4ef","resources":{"hostingSite":"fir-chat-app-v1-9d4ef","storageBucket":"fir-chat-app-v1-9d4ef.appspot.com","locationId":"asia-south1"},"state":"ACTIVE","etag":"1_eabc0eee-0e7d-464a-b631-3f3fec82c843"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 

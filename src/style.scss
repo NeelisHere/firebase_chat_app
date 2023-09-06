@@ -239,12 +239,13 @@
                 &::-webkit-scrollbar {
                     background-color: transparent;
                     // background-color: #333;
+                    padding: 3px;
                     width: 12px;
                 }
                 &::-webkit-scrollbar-thumb {
                     background-color: #dedede;
                     border-radius: 5px;
-                    // border:3px solid white;
+                    // border:3px solid red;
                 }
                 background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
                 .messages{

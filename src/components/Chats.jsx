@@ -34,8 +34,9 @@ const Chats = () => {
         <div className='chats'>
             {
                 // console.log('>>', chats)
-                chats?.sort((a, b) => (a > b)).map((chat, index) => {
-                    // console.log('>>', chat)
+                // .sort((a, b) => (a.nanoseconds - b.nanoseconds))
+                chats?.map((chat, index) => {
+                    console.log('>>', chat[1].date.seconds)
                     const { lastMessage, userInfo } = chat[1]
                     let selectedChatStyle = {}
                     if (userInfo.uid === data.user.uid) {
