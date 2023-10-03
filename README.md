@@ -1,4 +1,5 @@
 # Real Time Chat Application
+A real-time chat application where users can login, chat with other users and send images.
 
 ## Tools 
 - **React** and **Context API** (for state management) 
